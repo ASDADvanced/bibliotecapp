@@ -1,23 +1,30 @@
 <?php 
-    include "../controllers/clientes-create-controller.php";
+    include "../controllers/usuarios-create-controller.php";
 
-    class clientesCreteServices{    
+    class usuarioCreteServices{    
 
         function saveCliente($datos){
             include "../config/config.php";
             
             if(isset($datos["ced"])){//verificar la existencia de envio de datos
-                $objDB = new clientesCreateController();
+                $objDB = new usuariosCreateController();
+
+            
 
                 $data = array(
                     "ced"=> $datos["ced"],
                     "nom"=> $datos["nom"],
-                    "dir"=> $datos["dir"],
                     "tel"=> $datos["tel"],
-                    "wat"=> $datos["wat"]
+                    "dir"=> $datos["dir"],
+                    "emai"=> $datos["emai"],
+                    "carr"=> $datos["carr"],
+                    "use"=> $datos["use"],
+                    "pas"=> $datos["pas"],
+                    "fk_tipo"=> $datos["fk_tipo"]
                 );
+            
 
-                $ejecucion = $objDB->saveClientes($data);
+                $ejecucion = $objDB->saveUsuario($data);
                 if($ejecucion){ // Todo se ejecuto correctamente
                     echo json_encode(array("data"=>null, "error"=>"0", "msg"=>$errorResponse[0] ));                    
                 }else{ // Algo paso mal
