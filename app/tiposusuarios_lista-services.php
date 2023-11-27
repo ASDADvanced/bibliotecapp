@@ -3,7 +3,7 @@
 
     class tipousuariosGetServices{
 
-        function usuariosGet(){
+        function tipousuariosGet(){
             $objDB = new tipousuariosGetController();
             $data = array();
             include "../config/config.php";
@@ -15,8 +15,8 @@
             }
 
             //Creamos Array que entregara un Json de resultado
-            $tipousuarios = array();
-            $tipousuarios["data"] = array();
+            $tipousuario = array();
+            $tipousuario["data"] = array();
 
             if($data){ //Valida si hay datos
                 foreach($data as $row){//Recorrer los registros y montar cada uno en el ARRAY temporal
@@ -25,11 +25,11 @@
                         "name" => $row["nombre"],
                         
                     );
-                    array_push($usuarios["data"], $item);  //  montamos el array temporal en JSON            
+                    array_push($tipousuario["data"], $item);  //  montamos el array temporal en JSON            
                 }
-                $tipousuaros["msg"] = "OK";
-                $tipousuarios["error"] = "0";
-                echo json_encode($tipousuarios); //Formateamos tods los datos a JSON OFICIAL
+                $tipousuaro["msg"] = "OK";
+                $tipousuario["error"] = "0";
+                echo json_encode($tipousuario); //Formateamos tods los datos a JSON OFICIAL
                 
             }else{
                 echo json_encode(array("data"=>null, "error"=>"4", "msg"=>$errorResponse[4] ));
