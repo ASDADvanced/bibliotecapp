@@ -18,13 +18,13 @@ class DBOperations extends DBConfig {
 /**
 * IMPLEMENTACION DE ACCESO A CONSULTAS PARA PROTEGER MAS LA VISTA
 */
-class clientesCreateController extends DBOperations
+class prestamosCreateController extends DBOperations
 {
 	
-	function saveClientes($data){
+	function savePrestamos($data){
 		//$hash = password_hash($contra, PASSWORD_DEFAULT);
         $ejecucion = $this->dbOperaciones("
-				INSERT INTO prestamos(codigo, fecha, hora, fechadevolucion, observacion, sancion, fk__id_usuario, fk_id_libro) 
+				INSERT INTO prestamos(codigo, fecha, hora, fechadevolucion, observacion, sancion, fk_id_usuario, fk_id_libro) 
                 values(".$data["cod"].", '".$data["fecha"]."', '".$data["hora"]."', ".$data["fecdev"].", ".$data["obs"].",  ".$data["san"]." ) ");
 		return $ejecucion;												   		
 	}
