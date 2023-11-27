@@ -1,6 +1,6 @@
 <?php
     include "../app/prestamos_lista-services.php";
-    $objAPI = new usuarioAPI();
+    $objAPI = new prestamosAPI();
 
     $method = $_SERVER['REQUEST_METHOD'];
     header("Content-Type: Application/json");
