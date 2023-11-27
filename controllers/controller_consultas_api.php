@@ -22,15 +22,15 @@ class tipousuariosGetController extends ConsultasDB
 	// ****************************************************************************
     //MUESTRA LISTADO DE CLIENTES
 	function listadousuariostipo($start=0, $regsCant = 0){
-		$sql = "SELECT * FROM TIPOUSUARIO";
+		$sql = "SELECT * FROM tipousuario";
 		if ($regsCant > 0 )
-			 $sql = "SELECT * from TIPOUSUARIO $start,$regsCant";
+			 $sql = "SELECT * from tipousuario $start,$regsCant";
 		$lista = $this->consulta_generales($sql);	
 		return $lista;
 	}
 	// DETALLE DE Clientes SELECICONADA SEGUN ID
 	function tipousuariosById($idu){
-		$sql = "SELECT * from TIPOUSUARIO where id=$idu ";
+		$sql = "SELECT * from tipousuario where id=$idu ";
 		$lista = $this->consulta_generales($sql);	
 		return $lista;
 	}	
