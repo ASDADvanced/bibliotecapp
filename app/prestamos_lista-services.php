@@ -1,24 +1,25 @@
 <?php 
-    include "../prestamo_controller_consultas_backend_api.php";
+    include "../controllers/prestamos_consultas_api.php";
 
+    class prestamoGetServices{
 
-    class prestamosAPI{
-
-        function getAllprestamo(){
-            $objDB = new ExtraerDatos();
+        function prestamoGet(){
+            $objDB = new prestamoGetController();
             $data = array();
+            include "../config/config.php";
 
             if (isset($_GET["id"])){
-                $data = $objDB->prestamosDetalle($_GET["id"]);
+                $data = $objDB->prestamoById($_GET["id"]);
             }else{
-                $data = $objDB->listadoprestamos();
+                $data = $objDB->listadoprestamo();
             }
 
-            $usuario = array();
-            $usuario["data"] = array();
+            //Creamos Array que entregara un Json de resultado
+            $prestamos = array();
+            $prestamos["data"] = array();
 
-            if($data){
-                foreach($data as $row){
+            if($data){ //Valida si hay datos
+                foreach($data as $row){//Recorrer los registros y montar cada uno en el ARRAY temporal
                     $item = array(
                         "Codigo" => $row["cod"],
                         "Fecha" => $row["fecha"],                    
@@ -26,38 +27,20 @@
                         "Fecha Devolucion" => $row["fechadevolucion"],
                         "Observaciones" => $row["observacion"],
                         "Sanciones" => $row["sancion"],
+                        "id usuario" => $row["fk_id_usuario"],
+                        "id libro" => $row["fk_id_libro"],
                         
                     );
-                    array_push($prestamos["data"], $item);                
+                    array_push($prestamos["data"], $item);  //  montamos el array temporal en JSON            
                 }
                 $prestamos["msg"] = "OK";
                 $prestamos["error"] = "0";
-                echo json_encode($prestamos);
+                echo json_encode($prestamos); //Formateamos tods los datos a JSON OFICIAL
                 
             }else{
-                echo json_encode(array("data"=>null, "error"=>"1", "msg"=>"NO hay datos", ));
+                echo json_encode(array("data"=>null, "error"=>"4", "msg"=>$errorResponse[4] ));
             }
         }
-
-        function saveEmpleado(){
-            echo json_encode(array("data"=>null, "error"=>"0", "msg"=>"Guardar", ));
-        }
-
-        function updateEmpleado(){
-            echo json_encode(array("data"=>null, "error"=>"0", "msg"=>"Actualizar", ));
-        }
-
-        function deleteEmpleado(){
-            echo json_encode(array("data"=>null, "error"=>"0", "msg"=>"Eliminar", ));
-        }
-
-        function nullRequest(){
-            echo json_encode(array("data"=>null, "error"=>"0", "msg"=>"Solicitud Nula", ));
-        }
-
-
-
-
         
     }
 
