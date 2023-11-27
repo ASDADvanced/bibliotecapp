@@ -15,56 +15,28 @@ class ConsultasDB extends DBConfig {
 	}
 }
 
-
-/**
-* IMPLEMENTACION DE ACCESO A CONSULTAS PARA PROTEGER MAS LA VISTA
-*/
-class ExtraerDatos extends ConsultasDB
+class prestamoGetController extends ConsultasDB
 {
-
-		
-	//MUESTRA LISTADO DE USUARIOS
-	function listadoprestamos($start=0, $regsCant = 0){
-		$sql = "SELECT * FROM prestamos";
-		if ($regsCant > 0 )
-			 $sql = "SELECT * from prestamos $start,$regsCant";
-		$lista = $this->consulta_generales($sql);	
-		return $lista;
-	}
-	// DETALLE DE USUARIOS SELECICONADA SEGUN ID
-	function prestamosDetalle($idu){
-		$sql = "SELECT * from prestamos where cod=$idu ";
-		$lista = $this->consulta_generales($sql);	
-		return $lista;
-	}
-
 	// ****************************************************************************
 	// Agregue aqui debajo el resto de Funciones - Se ha dejado  Listado y detalle
 	// ****************************************************************************
-
-	//MUESTRA LISTADO DE EMPLEADOS
-	function listadoprestamos($start=0, $regsCant = 0){
+    //MUESTRA LISTADO DE CLIENTES
+	function listadoprestamo($start=0, $regsCant = 0){
 		$sql = "SELECT * FROM prestamos";
 		if ($regsCant > 0 )
 			 $sql = "SELECT * from prestamos $start,$regsCant";
 		$lista = $this->consulta_generales($sql);	
 		return $lista;
 	}
-	// DETALLE DE EMPLEADOS SELECICONADA SEGUN ID
-	function prestamosDetalle($idu){
-		$sql = "SELECT * from prestamos where cod=$idu ";
+	// DETALLE DE Clientes SELECICONADA SEGUN ID
+	function prestamoById($idu){
+		$sql = "SELECT * from prestamos where id=$idu ";
 		$lista = $this->consulta_generales($sql);	
 		return $lista;
-	}
-	
-
-	
-    function usuarios($usu){
-		$sql = "SELECT * from user where usu=$usu ";
-		$lista = $this->consulta_generales($sql);	
-		return $lista;
-	}
+	}	
 	
 }//fin CLASE
+
+
 
 ?>
