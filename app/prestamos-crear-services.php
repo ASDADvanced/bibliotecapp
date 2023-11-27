@@ -1,23 +1,25 @@
 <?php 
-    include "../controllers/clientes-create-controller.php";
+    include "../controllers/prestamos-create-controller.php";
 
     class prestamosCreteServices{    
 
         function saveCliente($datos){
             include "../config/config.php";
             
-            if(isset($datos["cod"])){//verificar la existencia de envio de datos
+            if(isset($datos["ced"])){//verificar la existencia de envio de datos
                 $objDB = new prestamosCreateController();
 
                 $data = array(
                     "cod"=> $datos["cod"],
-                    "fec"=> $datos["fec"],
+                    "fecha"=> $datos["fecha"],
                     "hora"=> $datos["hora"],
-                    "fecdev"=> $datos["fecdev"],
-                    "obs"=> $datos["obs"],
-                    "sanc"=> $datos["sanc"],
+                    "fecha_devolucion"=> $datos["fecha_devolucion"],
+                    "observacion"=> $datos["observacion"],
+                    "sancion"=> $datos["sancion"],
+                    "fk"=> $datos["observacion"],
+                    "observacion"=> $datos["observacion"],
                     "fk_id_usuario"=> $datos["fk_id_usuario"],
-                    "fk_id_libro"=> $datos["fk_id_libro"],
+                     "fk_id_libro"=> $datos["fk_id_libro"],
                 );
 
                 $ejecucion = $objDB->savePrestamos($data);
