@@ -22,15 +22,15 @@ class clientesGetController extends ConsultasDB
 	// ****************************************************************************
     //MUESTRA LISTADO DE CLIENTES
 	function listadoClientes($start=0, $regsCant = 0){
-		$sql = "SELECT * FROM Clientes";
+		$sql = "SELECT * FROM cliente";
 		if ($regsCant > 0 )
-			 $sql = "SELECT * from Clientes $start,$regsCant";
+			 $sql = "SELECT * from cliente $start,$regsCant";
 		$lista = $this->consulta_generales($sql);	
 		return $lista;
 	}
 	// DETALLE DE Clientes SELECICONADA SEGUN ID
 	function ClientesById($idu){
-		$sql = "SELECT * from Clientes where id=$idu ";
+		$sql = "SELECT * from cliente where id=$idu ";
 		$lista = $this->consulta_generales($sql);	
 		return $lista;
 	}	
