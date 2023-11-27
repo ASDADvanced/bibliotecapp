@@ -10,15 +10,15 @@
             break;
 
         case 'POST':
-            $objAPI->saveuprestamos();
+            $objAPI->saveuprestamo();
             break;
 
         case 'PUT':
-            $objAPI->updateprestamos();
+            $objAPI->updateprestamo();
             break;
 
         case 'DELETE':
-            $objAPI->deleteprestamos();
+            $objAPI->deleteprestamo();
             break;
 
         
