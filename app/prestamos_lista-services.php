@@ -1,5 +1,5 @@
 <?php 
-    include "../controllers/prestamos_consultas_api.php";
+    include "../controllers/prestamos_controller_consultas_backend_api.php";
 
     class prestamoGetServices{
 
