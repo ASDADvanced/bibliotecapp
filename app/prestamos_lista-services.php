@@ -4,7 +4,7 @@
 
     class prestamosAPI{
 
-        function getAllusuario(){
+        function getAllprestamo(){
             $objDB = new ExtraerDatos();
             $data = array();
 
@@ -28,10 +28,10 @@
                         "Sanciones" => $row["sancion"],
                         
                     );
-                    array_push($prestamo["data"], $item);                
+                    array_push($prestamos["data"], $item);                
                 }
-                $usuario["msg"] = "OK";
-                $usuario["error"] = "0";
+                $prestamos["msg"] = "OK";
+                $prestamos["error"] = "0";
                 echo json_encode($prestamos);
                 
             }else{
