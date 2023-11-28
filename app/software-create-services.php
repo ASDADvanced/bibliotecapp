@@ -6,7 +6,7 @@
         function saveSoftware($datos){
             include "../config/config.php";
             
-            if(isset($datos["ced"])){//verificar la existencia de envio de datos
+            if(isset($datos["id"])){//verificar la existencia de envio de datos
                 $objDB = new softwareCreateController();
 
             
