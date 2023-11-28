@@ -27,8 +27,8 @@ class softwareAPI
                     "nombre" => $row["name"],
                     "sistem" => $row["systems"],
                     "develop" => $row["developer"],
-                    "requerimientos" => $row["requirements"],
-                    "descripcion" => $row["descripction"],
+                    "requerimientos" => $row["requeriments"],
+                    "descripcion" => $row["description"],
                     "price" => $row["price"],
                 );
                 array_push($software["data"], $item);

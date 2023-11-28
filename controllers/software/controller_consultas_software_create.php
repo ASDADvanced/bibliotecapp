@@ -31,8 +31,8 @@ class ExtraerDatos extends DBOperations
 	{
 
 
-		$ejecucion = $this->dbOperaciones("INSERT INTO software(name,systems,developer,requirements, price)
-														values('$name', '$systems', '$developer', '$requirements', '$descripction', '$price')");
+		$ejecucion = $this->dbOperaciones("INSERT INTO software(name, systems, developer, requeriments, description, price)
+														values('$name', '$systems', '$developer', '$requirements', '$descripction', $price)");
 
 		return $ejecucion;
 	}

@@ -7,10 +7,9 @@ class softwaresAPI
     {
         if ($datos) {
 
-            if (isset($datos['cod'])) {
+            if (isset($datos['name'])) {
                 $objDB = new ExtraerDatos();
 
-                $cod = $datos['cod'];
                 $name = $datos['name'];
                 $systems = $datos['systems'];
                 $developer = $datos['developer'];
@@ -18,12 +17,12 @@ class softwaresAPI
                 $descripction = $datos['descripction'];
                 $price = $datos['price'];
 
-                $ejecucion = $objDB->saveSoftware($cod, $name, $systems, $developer, $requirements, $descripction, $price);
+                $ejecucion = $objDB->saveSoftware($name, $systems, $developer, $requirements, $descripction, $price);
 
                 if ($ejecucion) {
                     echo json_encode(array("data" => null, "error" => "0", "msg" => "Registro Guardado :)",));
                 } else {
-                    echo json_encode(array("data" => null, "error" => "1", "msg" => "La contraseña no se pudo actualizar :(",));
+                    echo json_encode(array("data" => null, "error" => "1", "msg" => "error al registrar :(",));
                 }
             } else {
                 echo json_encode(array("data" => null, "error" => "1", "msg" => "Falta el cod",));
