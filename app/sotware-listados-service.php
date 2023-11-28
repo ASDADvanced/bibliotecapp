@@ -25,7 +25,7 @@
                         "name" => $row["name"],
                         "systems" => $row["systems"],
                         "developer" => $row["developer"],
-                        "requiremets" => $row["requiremets"],
+                        "requirements" => $row["requirements"],
                         "descripction" => $row["descripction"],
                     );
                     array_push($usuario["data"], $item);  //  montamos el array temporal en JSON            
