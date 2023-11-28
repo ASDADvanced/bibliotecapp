@@ -1,8 +1,8 @@
 <?php
-    include "../app/prestamos-create-services.php";
+    include "../app/software-prestamos-services.php";
     include "../config/config.php";
     
-    $objAPI = new prestamosCreteServices();
+    $objAPI = new SoftwarePrestamosServices();
 
     $method = $_SERVER['REQUEST_METHOD'];
     header("Content-Type: Application/json");
