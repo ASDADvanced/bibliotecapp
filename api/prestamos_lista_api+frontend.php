@@ -1,6 +1,6 @@
 <?php
 include "../app/html_head.php";
-include "../app/prestamos_lista_api+backend-services.php";
+include "../app/prestamos_lista_api+frontend-services.php";
 include "../config/config.php";
 
 $objAPI = new prestamoGetServices();
