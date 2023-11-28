@@ -1,8 +1,8 @@
 <?php
-    include "../app/softwareupdateservices.php";
+    include "../app/softwareactualizacionservices.php";
     include "../config/config.php";
 
-    $objAPI = new SoftwareUpdateServices();
+    $objAPI = new SoftwareActualizacionServices();
 
     $method = $_SERVER['REQUEST_METHOD'];
     header("Content-Type: Application/json");
