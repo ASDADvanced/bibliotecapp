@@ -1,8 +1,8 @@
 <?php
-    include "../app/software-create-services.php";
+    include "../app/software-crear-services.php";
     include "../config/config.php";
     
-    $objAPI = new softwareCreteServices();
+    $objAPI = new softwareCrearServices();
 
     $method = $_SERVER['REQUEST_METHOD'];
     header("Content-Type: Application/json");
